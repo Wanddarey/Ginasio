@@ -96,5 +96,20 @@ namespace Ginasio
             }
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            textBox4.Clear();
+
+            textBox3.Clear();
+
+            textBox5.Clear();
+
+            comboBox1.Text = null;
+
+            dateTimePicker1.Value = DateTime.Today;
+
+        }
     }
 }
