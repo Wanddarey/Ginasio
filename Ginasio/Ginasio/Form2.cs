@@ -46,12 +46,55 @@ namespace Ginasio
             try
             {
                 BLL.Funcionarios.insertFuncionario(textBox4.Text, Hash(textBox3.Text), dateTimePicker1.Text, textBox5.Text, comboBox1.Text);
+
+                load();
             }
             catch
             {
                 MessageBox.Show("Erro");
             }
             
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            load();
+        }
+
+    public void load()
+        {
+            DataTable dt = BLL.Funcionarios.Load();
+
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            DataTable dtgr = BLL.Funcionarios.Load();
+
+            DataTable dt = BLL.Funcionarios.queryfuncionario2(Convert.ToInt32(dtgr.Rows[e.RowIndex]["IdFuncionario"]));
+
+            if (dt.Rows.Count > 0)
+            {
+
+                textBox4.Text = dt.Rows[0]["nome"].ToString();
+
+                textBox3.Text = Hash(dt.Rows[0]["password"].ToString());
+
+                textBox5.Text = dt.Rows[0]["telefone"].ToString();
+
+                comboBox1.Text = dt.Rows[0]["posicao"].ToString();
+
+                dateTimePicker1.Value = Convert.ToDateTime(dt.Rows[0]["dtn"]);
+
+            }
+
         }
     }
 }

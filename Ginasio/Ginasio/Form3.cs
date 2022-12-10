@@ -29,7 +29,7 @@ namespace Ginasio
 
         private void gerirFuncionariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (globais.accesslvl == "admin     ")
+            if (globais.accesslvl == "admin     " || globais.accesslvl == "admin")
             {
 
                 Form2 insideForm = new Form2();

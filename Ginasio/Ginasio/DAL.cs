@@ -16,7 +16,7 @@ namespace DataAccessLayer
 
         public DAL()
         {
-            _SqlConn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\121948\Desktop\Ginasio\Ginasio\bin\Debug\BDginaso.mdf;Integrated Security=True;Connect Timeout=30");
+            _SqlConn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lukas_uyyg84o\Desktop\Ginasio\Ginasio\Ginasio\bin\Debug\BDginaso.mdf;Integrated Security=True;Connect Timeout=30");
         }
 
         private void abrirLigacao()

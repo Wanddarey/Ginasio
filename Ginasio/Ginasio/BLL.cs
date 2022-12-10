@@ -144,7 +144,7 @@ namespace BusinessLogicLayer
                 new SqlParameter("@password", password),
                 new SqlParameter("@dtn", dtn),
                 new SqlParameter("@telefone", telefone),
-                new SqlParameter("@posicao", telefone)
+                new SqlParameter("@posicao", posicao)
            };
 
                 return dal.executarNonQuery("INSERT into Funcionario (Nome,password,dtn,telefone,posicao) VALUES(@nome,@password,@dtn,@telefone,@posicao)", sqlParams);
@@ -158,6 +158,21 @@ namespace BusinessLogicLayer
                  new SqlParameter("@password", password)
                 };
                 return dal.executarReader("select * from Funcionario where nome=@nome and password=@password", sqlParams);
+            }
+
+            static public DataTable Load()
+            {
+                DAL dal = new DAL();
+                return dal.executarReader("select * from Funcionario", null);
+            }
+
+            static public DataTable queryfuncionario2(int id)
+            {
+                DAL dal = new DAL();
+                SqlParameter[] sqlParams = new SqlParameter[]{
+                new SqlParameter("@id", id)
+                };
+                return dal.executarReader("select * from Funcionario where IdFuncionario=@id" , sqlParams);
             }
         }
     }

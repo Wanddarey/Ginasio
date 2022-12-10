@@ -43,6 +43,8 @@ namespace Ginasio
         private void button1_Click(object sender, EventArgs e)
         {
 
+            
+
             DataTable dt = BLL.Funcionarios.queryfuncionario(textBox1.Text, Hash(textBox2.Text));
 
             try
@@ -50,7 +52,7 @@ namespace Ginasio
                 if (dt.Rows.Count > 0)
                 {
 
-                    globais.accesslvl = dt.Rows[0]["posicao"].ToString(); ;
+                    globais.accesslvl = dt.Rows[0]["posicao"].ToString();
 
                     MessageBox.Show(globais.accesslvl);
 
